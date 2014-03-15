@@ -61,36 +61,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicReader.cs">
+    <Compile Include="ReaderForms\BasicReader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BasicReader.Designer.cs">
+    <Compile Include="ReaderForms\BasicReader.Designer.cs">
       <DependentUpon>BasicReader.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowManager.cs" />
-    <Compile Include="FileManager.cs" />
-    <Compile Include="MainViewer.cs">
+    <Compile Include="Managers\WindowManager.cs" />
+    <Compile Include="Managers\FileManager.cs" />
+    <Compile Include="ReaderForms\MainViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainViewer.Designer.cs">
+    <Compile Include="ReaderForms\MainViewer.Designer.cs">
       <DependentUpon>MainViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clone.cs">
+    <Compile Include="ReaderForms\Clone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clone.Designer.cs">
+    <Compile Include="ReaderForms\Clone.Designer.cs">
       <DependentUpon>Clone.cs</DependentUpon>
     </Compile>
-    <Compile Include="PictureManager.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Managers\PictureManager.cs" />
+    <Compile Include="Managers\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BasicReader.resx">
+    <EmbeddedResource Include="ReaderForms\BasicReader.resx">
       <DependentUpon>BasicReader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainViewer.resx">
+    <EmbeddedResource Include="ReaderForms\MainViewer.resx">
       <DependentUpon>MainViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clone.resx">
+    <EmbeddedResource Include="ReaderForms\Clone.resx">
       <DependentUpon>Clone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
