@@ -73,8 +73,6 @@ namespace MangaReader {
             }
         }
 
-       /* ------ Threading Methods (Basic threading for experimentation) ----------- */ 
-
     }
    
 }
