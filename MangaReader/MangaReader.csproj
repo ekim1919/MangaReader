@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="ReaderForms\BasicReader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +83,6 @@
       <DependentUpon>Clone.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\PictureManager.cs" />
-    <Compile Include="Managers\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ReaderForms\BasicReader.resx">
       <DependentUpon>BasicReader.cs</DependentUpon>
