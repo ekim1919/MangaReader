@@ -1,0 +1,9 @@
+MangaReader.sln
+MangaReader.suo
+MangaReader/bin/Debug/MangaReader.exe
+MangaReader/bin/Debug/MangaReader.pdb
+MangaReader/bin/Debug/MangaReader.vshost.exe.manifest
+MangaReader/obj/x86/Debug/DesignTimeResolveAssemblyReferences.cache
+MangaReader/obj/x86/Debug/MangaReader.exe
+MangaReader/obj/x86/Debug/MangaReader.pdb
+MangaReader/ReaderForms/MainViewer.Designer.cs
