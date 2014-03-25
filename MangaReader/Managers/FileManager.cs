@@ -5,6 +5,9 @@ using System.Text;
 using System.Collections;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing;
+
+using MangaReader.Threads;
 
 /*  
  * 
@@ -15,6 +18,7 @@ namespace MangaReader {
     internal class FileManager {
 
         private readonly List<String> FileNames;
+        private ImagePreload Images;
 
         public FileManager() {
             FileNames = new List<String>();
@@ -30,7 +34,7 @@ namespace MangaReader {
             if (fileresult.ShowDialog() == DialogResult.OK) {
                 try {
                     FileIndex = FindFiles(Path.GetDirectoryName(fileresult.FileName),fileresult.FileName);
-                    Console.Write(fileresult.FileName);
+                    initializePreload(FileIndex);
                 } catch (Exception a) { //More specific ?
                     MessageBox.Show("Error: " + a.Message);
                 }
@@ -61,34 +65,39 @@ namespace MangaReader {
             return ChosenFileIndex;
         }
 
-        internal String GetNextPos(ref int CurrentPosition) {
+        private void initializePreload(int FileIndex) {
+            Images = new ImagePreload(FileNames);
+            Images.LoadImages();
+        }
+
+        internal Image GetNextPos(ref int CurrentPosition) {
             if (CurrentPosition < FileNames.Count - 1) {
                 CurrentPosition++;
             } else {
                 CurrentPosition = 0; //Start from the beginning  
             }
 
-            return FileNames[CurrentPosition];
+            return Images.getImage(CurrentPosition);
         }
 
-        internal String GetPrevPos(ref int CurrentPosition) {
+        internal Image GetPrevPos(ref int CurrentPosition) {
             if (CurrentPosition > 0) {
                 CurrentPosition--;
             } else {
                 CurrentPosition = FileNames.Count - 1; //Start from end. 
             }
 
-            return FileNames[CurrentPosition];
+            return Images.getImage(CurrentPosition);
          }
 
-        internal String getPicAtPos(ref int CurrentPosition) {
+        internal Image getPicAtPos(ref int CurrentPosition) {
             if (CurrentPosition < 0) {
                 CurrentPosition = 0;
             } else if (CurrentPosition > FileNames.Count - 1) {
                 CurrentPosition = FileNames.Count - 1;
             }
 
-            return FileNames[CurrentPosition];
+            return Images.getImage(CurrentPosition);
         }
 
     }
