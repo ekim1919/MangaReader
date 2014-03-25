@@ -26,7 +26,6 @@ namespace MangaReader {
 
         /*-------------Interface methods ------------------- */
 
-  
         internal PictureManager PicMana {
             get {
                 return PicMan;
@@ -48,6 +47,10 @@ namespace MangaReader {
             } else if (e.KeyCode.Equals(Keys.Back)) {
                 WinMan.Back();
             }
+        }
+
+        private void fullScreenModeToolStripMenuItem_Click(object sender, EventArgs e) {
+            WinMan.ChangeFullScreenAll();
         }
 
 

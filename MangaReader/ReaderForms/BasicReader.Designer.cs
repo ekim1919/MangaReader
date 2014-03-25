@@ -28,19 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.FullDirectory = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // BasicReader
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 377);
-            this.Name = "BasicReader";
-            this.Text = "BasicReader";
-            this.ResumeLayout(false);
-
-            this.PictureBox = new System.Windows.Forms.PictureBox();
-            // Initialize the Basic Reader components;
             // PictureBox
             // 
             this.PictureBox.BackColor = System.Drawing.SystemColors.ControlText;
@@ -50,8 +42,6 @@
             this.PictureBox.Size = new System.Drawing.Size(875, 539);
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
-
-            this.FullDirectory = new System.Windows.Forms.Label();
             // 
             // FullDirectory
             // 
@@ -62,6 +52,17 @@
             this.FullDirectory.Size = new System.Drawing.Size(65, 13);
             this.FullDirectory.TabIndex = 2;
             this.FullDirectory.Text = "FullDirectory";
+            // 
+            // BasicReader
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(513, 377);
+            this.Name = "BasicReader";
+            this.Text = "BasicReader";
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
