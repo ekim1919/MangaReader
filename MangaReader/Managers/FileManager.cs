@@ -8,7 +8,7 @@ using System.IO;
 using System.Drawing;
 
 using MangaReader.Threads;
-
+using MangaReader.Structs;
 /*  
  * 
  * FileManager Class: The class responsible for 
@@ -70,34 +70,37 @@ namespace MangaReader {
             Images.LoadImages();
         }
 
-        internal Image GetNextPos(ref int CurrentPosition) {
+        internal ImgStruct GetNextPos(ref int CurrentPosition) {
             if (CurrentPosition < FileNames.Count - 1) {
                 CurrentPosition++;
             } else {
                 CurrentPosition = 0; //Start from the beginning  
             }
 
-            return Images.getImage(CurrentPosition);
+            return new ImgStruct(Images.getImage(CurrentPosition),
+                                 FileNames[CurrentPosition]);
         }
 
-        internal Image GetPrevPos(ref int CurrentPosition) {
+        internal ImgStruct GetPrevPos(ref int CurrentPosition) {
             if (CurrentPosition > 0) {
                 CurrentPosition--;
             } else {
                 CurrentPosition = FileNames.Count - 1; //Start from end. 
             }
 
-            return Images.getImage(CurrentPosition);
+            return new ImgStruct(Images.getImage(CurrentPosition),
+                                 FileNames[CurrentPosition]);
          }
 
-        internal Image getPicAtPos(ref int CurrentPosition) {
+        internal ImgStruct getPicAtPos(ref int CurrentPosition) {
             if (CurrentPosition < 0) {
                 CurrentPosition = 0;
             } else if (CurrentPosition > FileNames.Count - 1) {
                 CurrentPosition = FileNames.Count - 1;
             }
 
-            return Images.getImage(CurrentPosition);
+            return new ImgStruct(Images.getImage(CurrentPosition),
+                                 FileNames[CurrentPosition]);
         }
 
     }
