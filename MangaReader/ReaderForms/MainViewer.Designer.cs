@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+    
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,7 +39,6 @@
             this.scaleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullScreenModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +55,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem1,
             this.cloneToolStripMenuItem,
-            this.scaleToolStripMenuItem1,
-            this.fullScreenModeToolStripMenuItem});
+            this.scaleToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(875, 24);
@@ -123,13 +122,6 @@
             this.centerToolStripMenuItem.Text = "Center";
             this.centerToolStripMenuItem.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
             // 
-            // fullScreenModeToolStripMenuItem
-            // 
-            this.fullScreenModeToolStripMenuItem.Name = "fullScreenModeToolStripMenuItem";
-            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
-            this.fullScreenModeToolStripMenuItem.Text = "Full Screen Mode";
-            this.fullScreenModeToolStripMenuItem.Click += new System.EventHandler(this.fullScreenModeToolStripMenuItem_Click);
-            // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
@@ -159,9 +151,6 @@
             this.Name = "Viewer";
             this.Text = "MangaViewer";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Viewer_KeyDown);
-            this.Controls.SetChildIndex(this.menuStrip1, 0);
-            this.Controls.SetChildIndex(this.PictureBox, 0);
-            this.Controls.SetChildIndex(this.FullDirectory, 0);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -185,7 +174,6 @@
         private System.Windows.Forms.ToolStripMenuItem scaleToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem zoomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem centerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fullScreenModeToolStripMenuItem;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 
 namespace MangaReader {
@@ -32,7 +33,7 @@ namespace MangaReader {
 
         internal void Initialize(int pos_to_use) {
             CurrentPosition = pos_to_use;
-            LoadPic(FM.getPicAtPos(ref CurrentPosition));
+            thisform.LoadPic((FM.getPicAtPos(ref CurrentPosition)));
         }
   
         /* ------ File Traversal Methods ---- */
@@ -45,13 +46,13 @@ namespace MangaReader {
             updatePic(FM.GetPrevPos(ref CurrentPosition));
         }
        
-        internal void updatePic(String Path) {
-            LoadPic(Path);
-            thisform.ChangeDirectoryTextBox(Path);
+        internal void updatePic(Image currentimg) {
+            thisform.LoadPic(currentimg);
+            thisform.ChangeDirectoryTextBox();
         }
 
-        private void LoadPic(String PathName) {
-            thisform.LoadPic(PathName);
+        internal void ChangeReaderFullScreen() {
+            thisform.ChangeFullScreen();
         }
 
         /* ------ Accessor Methods ---------- */

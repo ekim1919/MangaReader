@@ -73,6 +73,12 @@ namespace MangaReader {
             }
         }
 
+        internal void ChangeFullScreenAll() {
+            foreach(PictureManager picman in CloneForms) {
+                picman.ChangeReaderFullScreen();
+            }
+        }
+
     }
    
 }
