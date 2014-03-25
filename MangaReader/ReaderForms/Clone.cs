@@ -50,6 +50,10 @@ namespace MangaReader {
             }
         }
 
+        private void fullScreenModeToolStripMenuItem_Click(object sender, EventArgs e) {
+            WinMan.ChangeFullScreenAll();
+        }
+
 
     }
 }
