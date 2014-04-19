@@ -11,10 +11,11 @@ C:\Users\Edward\Desktop\MangaReader-2014-03-01\MangaReader\MangaReader\obj\x86\D
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.exe
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.pdb
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.csprojResolveAssemblyReference.cache
-C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.BasicReader.resources
-C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.Viewer.resources
-C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.Clone.resources
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.Properties.Resources.resources
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.csproj.GenerateResource.Cache
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\bin\Debug\MangaReader.exe
 C:\Users\Edward\Desktop\MangaReader-master\MangaReader\bin\Debug\MangaReader.pdb
+C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.BasicReader.resources
+C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.Viewer.resources
+C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.Clone.resources
+C:\Users\Edward\Desktop\MangaReader-master\MangaReader\obj\x86\Debug\MangaReader.SettingsForms.Settings.resources
