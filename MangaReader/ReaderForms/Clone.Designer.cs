@@ -1,5 +1,5 @@
-﻿namespace MangaReader
-{
+﻿namespace MangaReader.ReaderForms {
+
     partial class Clone {
         /// <summary>
         /// Required designer variable.

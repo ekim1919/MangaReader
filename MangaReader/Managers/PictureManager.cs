@@ -6,8 +6,9 @@ using System.Windows.Forms;
 using System.Drawing;
 
 using MangaReader.Structs;
+using MangaReader.ReaderForms;
 
-namespace MangaReader {
+namespace MangaReader.Managers {
 
     /*
      * PictureManagerClass. The PictureManager class adds another layer of abstraction. It is responsible for keeping track of the current position in the image files list and loading the corresponding file into

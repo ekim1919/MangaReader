@@ -5,7 +5,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 
-namespace MangaReader {
+using MangaReader.ReaderForms;
+
+namespace MangaReader.Managers {
 
     /*
      * This is the MultiWindow class, the class responsible for tracking multiple forms and loading their corresponding pictures based on the viewing mode.

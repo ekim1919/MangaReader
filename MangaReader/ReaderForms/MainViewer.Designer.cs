@@ -1,5 +1,4 @@
-﻿namespace MangaReader
-{
+﻿namespace MangaReader.ReaderForms {
     partial class Viewer
     {
         /// <summary>
@@ -75,7 +74,7 @@
             // openFileToolStripMenuItem1
             // 
             this.openFileToolStripMenuItem1.Name = "openFileToolStripMenuItem1";
-            this.openFileToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.openFileToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.openFileToolStripMenuItem1.Text = "OpenFile";
             this.openFileToolStripMenuItem1.Click += new System.EventHandler(this.openFileToolStripMenuItem1_Click);
             // 
@@ -160,7 +159,6 @@
             this.Controls.Add(this.FullDirectory);
             this.Controls.Add(this.PictureBox);
             this.Controls.Add(this.menuStrip1);
-            this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Viewer";

@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MangaReader {
+using MangaReader.Managers;
+
+namespace MangaReader.ReaderForms {
+
     internal partial class BasicReader : Form {
 
         protected WindowManager WinMan;

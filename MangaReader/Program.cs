@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace MangaReader
-{
+using MangaReader.ReaderForms;
+
+namespace MangaReader {
     static class Program
     {
         /// <summary>

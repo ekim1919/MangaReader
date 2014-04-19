@@ -9,8 +9,11 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections;
 
-namespace MangaReader {
-  
+using MangaReader.Managers;
+using MangaReader.SettingsForms;
+
+namespace MangaReader.ReaderForms {
+ 
    internal partial class Viewer : BasicReader {
  
         public Viewer() : base() { 

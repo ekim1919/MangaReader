@@ -13,7 +13,7 @@ using MangaReader.Structs;
  * 
  * FileManager Class: The class responsible for 
  */
-namespace MangaReader {
+namespace MangaReader.Managers {
 
     internal class FileManager {
 
