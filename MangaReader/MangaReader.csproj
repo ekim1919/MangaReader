@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\ZoomManager.cs" />
     <Compile Include="MultiMonitor\ReaderMover.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ReaderForms\BasicReader.cs">
