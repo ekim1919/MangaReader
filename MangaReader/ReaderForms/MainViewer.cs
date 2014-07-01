@@ -18,6 +18,7 @@ namespace MangaReader.ReaderForms {
  
         public Viewer() : base() { 
             InitializeComponent();
+            this.MouseWheel += new MouseEventHandler(Reader_MouseWheel);
             PictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             this.Text = "MangaReader Form: 1";
         }
@@ -72,7 +73,7 @@ namespace MangaReader.ReaderForms {
         }
 
         private void Viewer_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode.Equals(Keys.Space) && WinMan != null){
+            if (e.KeyCode.Equals(Keys.Space) && WinMan != null) {
                 WinMan.Next();
             } else if (e.KeyCode.Equals(Keys.Back) && WinMan != null) {
                 WinMan.Back();

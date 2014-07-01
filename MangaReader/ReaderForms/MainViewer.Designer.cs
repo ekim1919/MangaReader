@@ -74,7 +74,7 @@
             // openFileToolStripMenuItem1
             // 
             this.openFileToolStripMenuItem1.Name = "openFileToolStripMenuItem1";
-            this.openFileToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.openFileToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.openFileToolStripMenuItem1.Text = "OpenFile";
             this.openFileToolStripMenuItem1.Click += new System.EventHandler(this.openFileToolStripMenuItem1_Click);
             // 
@@ -107,7 +107,7 @@
             this.zoomToolStripMenuItem,
             this.centerToolStripMenuItem});
             this.scaleToolStripMenuItem1.Name = "scaleToolStripMenuItem1";
-            this.scaleToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+            this.scaleToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
             this.scaleToolStripMenuItem1.Text = "Scale";
             // 
             // zoomToolStripMenuItem
@@ -127,7 +127,7 @@
             // fullScreenModeToolStripMenuItem
             // 
             this.fullScreenModeToolStripMenuItem.Name = "fullScreenModeToolStripMenuItem";
-            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
+            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
             this.fullScreenModeToolStripMenuItem.Text = "Full Screen Mode";
             this.fullScreenModeToolStripMenuItem.Click += new System.EventHandler(this.fullScreenModeToolStripMenuItem_Click);
             // 

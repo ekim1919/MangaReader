@@ -33,7 +33,8 @@ namespace MangaReader.Managers {
 
             if (fileresult.ShowDialog() == DialogResult.OK) {
                 try {
-                    FileIndex = FindFiles(Path.GetDirectoryName(fileresult.FileName),fileresult.FileName);
+                    FileIndex = FindFiles(Path.GetDirectoryName(fileresult.FileName),
+                                          fileresult.FileName);
                     initializePreload(FileIndex);
                 } catch (Exception a) { //More specific ?
                     MessageBox.Show("Error: " + a.Message);

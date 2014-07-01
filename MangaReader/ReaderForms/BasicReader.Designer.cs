@@ -62,7 +62,6 @@
             this.Text = "BasicReader";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

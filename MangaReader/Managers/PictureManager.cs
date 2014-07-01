@@ -51,6 +51,7 @@ namespace MangaReader.Managers {
         internal void updatePic(ImgStruct currentimg) {
             thisform.LoadPic(currentimg.getImg);
             thisform.ChangeDirectoryTextBox(currentimg.getPath);
+            thisform.CurrentZoomFactor = 1;
         }
 
         internal void ChangeReaderFullScreen() {

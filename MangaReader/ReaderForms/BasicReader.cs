@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using MangaReader.Managers;
+using MangaReader.Events;
 
 namespace MangaReader.ReaderForms {
 
@@ -17,10 +18,14 @@ namespace MangaReader.ReaderForms {
         protected PictureManager PicMan;
         protected bool FullScreenMode;
 
+        private ZoomManager ThisFormZoom;
+        public int CurrentZoomFactor = 1;
+
         public BasicReader() {
             InitializeComponent();
             WinMan = null;
             PicMan = null;
+            ThisFormZoom = null;
             FullScreenMode = false;
         }
 
@@ -32,6 +37,7 @@ namespace MangaReader.ReaderForms {
 
         public void LoadPic(Image img) {
             PictureBox.Image = img;
+            ThisFormZoom = new ZoomManager(img, img.Width, img.Height);
         }
 
         public void ChangeDirectoryTextBox(String pathname) {
@@ -49,5 +55,9 @@ namespace MangaReader.ReaderForms {
             }
             FullScreenMode = !FullScreenMode;
        }
-   }
+
+       protected void Reader_MouseWheel(object sender, MouseEventArgs e) {
+           ThisFormZoom.setZoomedImage(PictureBox, ref CurrentZoomFactor, e.Delta);
+       }
+    }
 }
