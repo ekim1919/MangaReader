@@ -7,23 +7,31 @@ using System.Drawing;
 namespace MangaReader.Structs {
 
     internal struct ImgStruct {
-        Image img;
-        String pathname;
+        Image Img;
+        string Pathname;
+        bool IsLastorFirstImage;
 
-        public ImgStruct(Image img, String pathname) {
-            this.img = img;
-            this.pathname = pathname;
+        public ImgStruct(Image img, string pathname, bool islast) {
+            Img = img;
+            Pathname = pathname;
+            IsLastorFirstImage = islast;
         }
 
         internal Image getImg {
             get {
-                return img;
+                return Img;
             }
         }
 
         internal string getPath {
             get {
-                return pathname;
+                return Pathname;
+            }
+        }
+
+        internal bool getLastorFirstImage {
+            get {
+                return IsLastorFirstImage;
             }
         }
     }

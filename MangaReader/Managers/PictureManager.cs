@@ -7,6 +7,8 @@ using System.Drawing;
 
 using MangaReader.Structs;
 using MangaReader.ReaderForms;
+using MangaReader.MessageBoxes;
+using MangaReader.MessageBoxes.LastFirst;
 
 namespace MangaReader.Managers {
 
@@ -40,18 +42,31 @@ namespace MangaReader.Managers {
   
         /* ------ File Traversal Methods ---- */
 
-        internal void GotoNext() { 
-            updatePic(FM.GetNextPos(ref CurrentPosition));
+        internal void GotoNext() {
+            ImgStruct thisPic = FM.GetNextPos(ref CurrentPosition);
+
+            if (!thisPic.getLastorFirstImage ||
+                YesNoDialog.AskForAction(new FinishingObject())){
+                    updatePic(thisPic);
+            } else {
+                CurrentPosition--;
+            }
         }
 
         internal void GoBack() {
-            updatePic(FM.GetPrevPos(ref CurrentPosition));
+            ImgStruct thisPic = FM.GetPrevPos(ref CurrentPosition);
+
+            if (!thisPic.getLastorFirstImage ||
+                YesNoDialog.AskForAction(new BeginningObject())) {
+                    updatePic(thisPic);
+            } else {
+                CurrentPosition++;
+            }
         }
        
         internal void updatePic(ImgStruct currentimg) {
             thisform.LoadPic(currentimg.getImg);
             thisform.ChangeDirectoryTextBox(currentimg.getPath);
-            thisform.CurrentZoomFactor = 1;
         }
 
         internal void ChangeReaderFullScreen() {

@@ -13,9 +13,9 @@ using MangaReader.ReaderForms;
 namespace MangaReader.SettingsForms {
 
     internal partial class Settings : Form {
-        private Viewer parent;
+        private MainViewer parent;
 
-        public Settings(Viewer parent) {
+        public Settings(MainViewer parent) {
             InitializeComponent();
             initializePanels();
             this.parent = parent;

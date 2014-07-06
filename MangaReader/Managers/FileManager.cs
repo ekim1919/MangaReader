@@ -78,8 +78,11 @@ namespace MangaReader.Managers {
                 CurrentPosition = 0; //Start from the beginning  
             }
 
+            bool isLast = (CurrentPosition == 0) ? true : false;
+
             return new ImgStruct(Images.getImage(CurrentPosition),
-                                 FileNames[CurrentPosition]);
+                                 FileNames[CurrentPosition],
+                                 isLast);
         }
 
         internal ImgStruct GetPrevPos(ref int CurrentPosition) {
@@ -88,11 +91,14 @@ namespace MangaReader.Managers {
             } else {
                 CurrentPosition = FileNames.Count - 1; //Start from end. 
             }
+           
+            bool isFront = (CurrentPosition == FileNames.Count - 1) ? true : false;
 
             return new ImgStruct(Images.getImage(CurrentPosition),
-                                 FileNames[CurrentPosition]);
+                                 FileNames[CurrentPosition],
+                                 isFront);
          }
-
+        
         internal ImgStruct getPicAtPos(ref int CurrentPosition) {
             if (CurrentPosition < 0) {
                 CurrentPosition = 0;
@@ -101,7 +107,8 @@ namespace MangaReader.Managers {
             }
 
             return new ImgStruct(Images.getImage(CurrentPosition),
-                                 FileNames[CurrentPosition]);
+                                 FileNames[CurrentPosition],
+                                 false);
         }
 
     }

@@ -1,5 +1,5 @@
 ﻿namespace MangaReader.ReaderForms {
-    partial class Viewer
+    partial class MainViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -151,7 +151,7 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // Viewer
+            // MainViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Viewer";
+            this.Name = "MainViewer";
             this.Text = "MangaViewer";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Viewer_KeyDown);
             this.Controls.SetChildIndex(this.menuStrip1, 0);

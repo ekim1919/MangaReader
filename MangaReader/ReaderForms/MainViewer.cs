@@ -10,13 +10,13 @@ using System.IO;
 using System.Collections;
 
 using MangaReader.Managers;
-using MangaReader.SettingsForms;
+using MangaReader.Initializers;
 
 namespace MangaReader.ReaderForms {
  
-   internal partial class Viewer : BasicReader {
+   internal partial class MainViewer : BasicReader {
  
-        public Viewer() : base() { 
+        public MainViewer() : base() { 
             InitializeComponent();
             this.MouseWheel += new MouseEventHandler(Reader_MouseWheel);
             PictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -34,6 +34,7 @@ namespace MangaReader.ReaderForms {
                         chosen_file_index,
                         1);
                 WinMan = new WindowManager(PicMan); //Create Window Manager for Current Session
+                SessionInitializer.WinMan = WinMan; //Set WindowsManager for Static class responsible for reinitialization
             }
         }
 
@@ -43,12 +44,7 @@ namespace MangaReader.ReaderForms {
             if (PicMan == null) {
                 InitializeSession();
             } else {
-                FileManager newSession = new FileManager();
-                int chosen_file_index = newSession.Initialize();
-
-                if(chosen_file_index >= 0) {
-                    WinMan.ChangeFileManager(newSession, chosen_file_index);
-                }
+                SessionInitializer.newFileManager();
             }
         }
 

@@ -12,10 +12,11 @@ namespace MangaReader.Threads {
      * It only threads the pictures in a local area (the previous, current, and next picture) 
      * This decreases the session initialization time.
      * TODOs: Add a memory recycling option because it keeps all the pictures (bitmaps) in memory. 
+     * Thread Manager
      */
     internal class ImagePreloadDynamic : ImagePreload {
         private int initialIndex;
-
+        
         public ImagePreloadDynamic(List<String> pathname, int initial_index) : base(pathname) {
             initialIndex = initial_index;
         }
@@ -44,5 +45,9 @@ namespace MangaReader.Threads {
                 } 
             }
         }
+        
+       // private class ThreadManager {
+        //    Queue<Task> 
+        //}
     }
 }

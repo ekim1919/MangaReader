@@ -19,7 +19,6 @@ namespace MangaReader.ReaderForms {
         protected bool FullScreenMode;
 
         private ZoomManager ThisFormZoom;
-        public int CurrentZoomFactor = 1;
 
         public BasicReader() {
             InitializeComponent();
@@ -57,7 +56,7 @@ namespace MangaReader.ReaderForms {
        }
 
        protected void Reader_MouseWheel(object sender, MouseEventArgs e) {
-           ThisFormZoom.setZoomedImage(PictureBox, ref CurrentZoomFactor, e.Delta);
+           ThisFormZoom.setZoomedImage(PictureBox, e.Delta);
        }
     }
 }
