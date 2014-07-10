@@ -27,6 +27,6 @@ C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.cspr
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.BasicReader.resources
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.Clone.resources
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.Properties.Resources.resources
-C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.SettingsForms.Settings.resources
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.csproj.GenerateResource.Cache
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.MainViewer.resources
+C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.SettingsForms.SettingsForm.resources
