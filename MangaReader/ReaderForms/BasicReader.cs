@@ -56,7 +56,7 @@ namespace MangaReader.ReaderForms {
        }
 
        protected void Reader_MouseWheel(object sender, MouseEventArgs e) {
-           ThisFormZoom.setZoomedImage(PictureBox, e.Delta);
+           ThisFormZoom.setZoomedImage(PictureBox, e.Delta, e.X, e.Y);
        }
     }
 }

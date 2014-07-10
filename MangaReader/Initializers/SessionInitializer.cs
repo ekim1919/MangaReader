@@ -9,7 +9,7 @@ namespace MangaReader.Initializers {
 
     internal static class SessionInitializer {
 
-        public static WindowManager WinMan;
+        internal static WindowManager WinMan;
 
         public static void newFileManager() {
             FileManager newSession = new FileManager();
