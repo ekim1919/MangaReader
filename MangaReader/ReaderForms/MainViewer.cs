@@ -11,6 +11,7 @@ using System.Collections;
 
 using MangaReader.Managers;
 using MangaReader.Initializers;
+using MangaReader.SettingsForms;
 
 namespace MangaReader.ReaderForms {
  
@@ -80,6 +81,12 @@ namespace MangaReader.ReaderForms {
             if(WinMan != null) {
                 WinMan.ChangeFullScreenAll();
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e) {
+            SettingsForm newSettings = new SettingsForm(this);
+            newSettings.Show();
+            Enabled = false;
         }
 
     }
