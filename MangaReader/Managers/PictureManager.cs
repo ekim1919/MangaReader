@@ -9,6 +9,7 @@ using MangaReader.Structs;
 using MangaReader.ReaderForms;
 using MangaReader.MessageBoxes;
 using MangaReader.MessageBoxes.LastFirst;
+using MangaReader.Initializers;
 
 namespace MangaReader.Managers {
 
@@ -45,18 +46,20 @@ namespace MangaReader.Managers {
         internal void GotoNext() {
             ImgStruct thisPic = FM.GetNextPos(ref CurrentPosition);
 
-            if (!thisPic.getLastorFirstImage ||
+            if (!Settings.Alerts || 
+                !thisPic.getLastorFirstImage ||
                 YesNoDialog.AskForAction(new FinishingObject())){
                     updatePic(thisPic);
             } else {
-                CurrentPosition--;
+                CurrentPosition--; //Revert back to last picture due to GetNextPos using by reference passing 
             }
         }
 
         internal void GoBack() {
             ImgStruct thisPic = FM.GetPrevPos(ref CurrentPosition);
 
-            if (!thisPic.getLastorFirstImage ||
+            if (!Settings.Alerts ||
+                !thisPic.getLastorFirstImage ||
                 YesNoDialog.AskForAction(new BeginningObject())) {
                     updatePic(thisPic);
             } else {
