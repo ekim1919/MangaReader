@@ -12,7 +12,7 @@ namespace MangaReader.Events {
 
 
     internal class ZoomManager {
-        private const int NUM_OF_ZOOM_PIXELS = 50;
+        private readonly int NUM_OF_ZOOM_PIXELS = 5;
                 
         private int ThisPicWidth = 0;
         private int ThisPicHeight = 0;
@@ -26,10 +26,10 @@ namespace MangaReader.Events {
            CurrentZoomFactor = 1;
         }
 
-        public void setZoomedImage(PictureBox reader, int delta) {
+        public void setZoomedImage(PictureBox reader, int delta, int X, int Y) {
             int pixelTranslationNum = NUM_OF_ZOOM_PIXELS * (CurrentZoomFactor + delta / 120);
-            int newZoomWidth = ThisPicWidth + 3 * pixelTranslationNum;
-            int newZoomHeight = ThisPicHeight + 3 * pixelTranslationNum;
+            int newZoomWidth =  (int)(ThisPicWidth + 30 * pixelTranslationNum);
+            int newZoomHeight = (int)(ThisPicHeight + 30 *pixelTranslationNum);
 
             if(reader.Image != null &&
                 newZoomWidth >= ThisPicWidth &&
@@ -43,13 +43,14 @@ namespace MangaReader.Events {
                 Graphics tempGraphics = Graphics.FromImage(newMap);
 
                 tempGraphics.DrawImage(ThisPic,
-                                       new Rectangle(0, 0, newZoomWidth,
-                                                           newZoomHeight),
-                                       new Rectangle(pixelTranslationNum,
-                                                     pixelTranslationNum,
-                                                     ThisPicWidth - 2*pixelTranslationNum,
-                                                     ThisPicHeight - 2*pixelTranslationNum),
-                                                     GraphicsUnit.Pixel);
+                                       new Rectangle(new Point(0,0), 
+                                                     new Size(newZoomWidth,newZoomHeight)),
+
+                                       new Rectangle(new Point(pixelTranslationNum,
+                                                               pixelTranslationNum), 
+                                                     new Size(ThisPicWidth - 2*pixelTranslationNum ,
+                                                              ThisPicHeight - 2*pixelTranslationNum)),
+                                                              GraphicsUnit.Pixel);
                 tempGraphics.Dispose();
 
                 Image oldPic = reader.Image;
