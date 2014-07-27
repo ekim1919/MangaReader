@@ -26,10 +26,10 @@ namespace MangaReader.Events {
            CurrentZoomFactor = 1;
         }
 
-        public void setZoomedImage(PictureBox reader, int delta, int X, int Y) {
+        internal void setZoomedImage(PictureBox reader, int delta, int X, int Y) {
             int pixelTranslationNum = NUM_OF_ZOOM_PIXELS * (CurrentZoomFactor + delta / 120);
-            int newZoomWidth =  (int)(ThisPicWidth + 30 * pixelTranslationNum);
-            int newZoomHeight = (int)(ThisPicHeight + 30 *pixelTranslationNum);
+            int newZoomWidth = ThisPicWidth + 30 * pixelTranslationNum;
+            int newZoomHeight = ThisPicHeight + 30 *pixelTranslationNum;
 
             if(reader.Image != null &&
                 newZoomWidth >= ThisPicWidth &&
