@@ -17,7 +17,7 @@ namespace MangaReader.Managers {
      * PictureManagerClass. The PictureManager class adds another layer of abstraction. It is responsible for keeping track of the current position in the image files list and loading the corresponding file into
      * the PictureBox of the corresponding form
      */
-     internal class PictureManager {
+     public class PictureManager {
 
         private FileManager FM; 
         private BasicReader thisform;  
@@ -36,14 +36,14 @@ namespace MangaReader.Managers {
 
         /* ------ Initialization Methods ---- */
 
-        internal void Initialize(int pos_to_use) {
+        public void Initialize(int pos_to_use) {
             CurrentPosition = pos_to_use;
             updatePic((FM.getPicAtPos(ref CurrentPosition)));
         }
   
         /* ------ File Traversal Methods ---- */
 
-        internal void GotoNext() {
+        public void GotoNext() {
             ImgStruct thisPic = FM.GetNextPos(ref CurrentPosition);
 
             if (!Settings.Alerts || 
@@ -55,7 +55,7 @@ namespace MangaReader.Managers {
             }
         }
 
-        internal void GoBack() {
+        public void GoBack() {
             ImgStruct thisPic = FM.GetPrevPos(ref CurrentPosition);
 
             if (!Settings.Alerts ||
@@ -67,18 +67,18 @@ namespace MangaReader.Managers {
             }
         }
        
-        internal void updatePic(ImgStruct currentimg) {
+        public void updatePic(ImgStruct currentimg) {
             thisform.LoadPic(currentimg.getImg);
             thisform.ChangeDirectoryTextBox(currentimg.getPath);
         }
 
-        internal void ChangeReaderFullScreen() {
+        public void ChangeReaderFullScreen() {
             thisform.ChangeFullScreen();
         }
 
         /* ------ Accessor Methods ---------- */
 
-        internal FileManager FileMana {
+        public FileManager FileMana {
             get {
                 return FM;
             }
@@ -88,13 +88,13 @@ namespace MangaReader.Managers {
             }
         }
 
-        internal int CurrentPos {
+        public int CurrentPos {
             get {
                 return CurrentPosition;
             }
         }
 
-        internal int FormNum {
+        public int FormNum {
             get {
                 return FormNumber;
             }

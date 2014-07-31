@@ -7,9 +7,9 @@ using MangaReader.Managers;
 
 namespace MangaReader.Initializers {
 
-    internal static class SessionInitializer {
+    public static class SessionInitializer {
 
-        internal static WindowManager WinMan;
+        public static WindowManager WinMan;
 
         public static void newFileManager() {
             FileManager newSession = new FileManager();

@@ -19,4 +19,6 @@ namespace MangaReader.FileHandlers {
         abstract public int initializeImgList();
         abstract public Image getImage(int position);
     }
+
+
 }

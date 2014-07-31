@@ -11,7 +11,7 @@ using MangaReader.ReaderForms;
 namespace MangaReader.Events {
 
 
-    internal class ZoomManager {
+    public class ZoomManager {
         private readonly int NUM_OF_ZOOM_PIXELS = 5;
                 
         private int ThisPicWidth = 0;
@@ -26,7 +26,7 @@ namespace MangaReader.Events {
            CurrentZoomFactor = 1;
         }
 
-        internal void setZoomedImage(PictureBox reader, int delta, int X, int Y) {
+        public void setZoomedImage(PictureBox reader, int delta, int X, int Y) {
             int pixelTranslationNum = NUM_OF_ZOOM_PIXELS * (CurrentZoomFactor + delta / 120);
             int newZoomWidth = ThisPicWidth + 30 * pixelTranslationNum;
             int newZoomHeight = ThisPicHeight + 30 *pixelTranslationNum;

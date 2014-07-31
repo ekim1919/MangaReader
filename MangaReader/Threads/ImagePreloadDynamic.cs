@@ -14,18 +14,18 @@ namespace MangaReader.Threads {
      * TODOs: Add a memory recycling option because it keeps all the pictures (bitmaps) in memory. 
      * Thread Manager
      */
-    internal class ImagePreloadDynamic : ImagePreload {
+    public class ImagePreloadDynamic : ImagePreload {
         private int initialIndex;
         
         public ImagePreloadDynamic(List<String> pathname, int initial_index) : base(pathname) {
             initialIndex = initial_index;
         }
 
-        internal override void LoadImages() {
+        public override void LoadImages() {
             LoadThreads(initialIndex);
         }
 
-        internal override Image getImage(int position) {
+        public override Image getImage(int position) {
             Task wantedTsk = taskArray[position];
             if(!wantedTsk.IsCompleted) {
                 wantedTsk.Wait();
@@ -34,7 +34,7 @@ namespace MangaReader.Threads {
             return base.getImage(position);
         }
 
-        internal void LoadThreads(int position) {
+        public void LoadThreads(int position) {
             int[] threadStart = { position - 1, position, position + 1 };
             for (int i = 0; i < 3; i++) {
                 int index = threadStart[i];

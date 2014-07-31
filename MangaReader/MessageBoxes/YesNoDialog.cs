@@ -6,11 +6,10 @@ using System.Windows.Forms;
 
 using MangaReader.MessageBoxes.LastFirst;
 
-namespace MangaReader.MessageBoxes
-{
-    internal class YesNoDialog {
+namespace MangaReader.MessageBoxes {
+    public class YesNoDialog {
 
-        internal static bool AskForAction(LastFirstObj actionObj) {
+        public static bool AskForAction(LastFirstObj actionObj) {
             String caption = "End or Beginning of Session";
             MessageBoxButtons confirmation = MessageBoxButtons.YesNo;
 

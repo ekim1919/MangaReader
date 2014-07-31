@@ -15,7 +15,7 @@ using MangaReader.SettingsForms;
 
 namespace MangaReader.ReaderForms {
  
-   internal partial class MainViewer : BasicReader {
+   public partial class MainViewer : BasicReader {
  
         public MainViewer() : base() { 
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace MangaReader.ReaderForms {
             this.Text = "MangaReader Form: 1";
         }
 
-        private void InitializeSession() { //Work on initializatrion
+        private void InitializeSession() { //Work on initialization
             FileManager SessionMana = new FileManager();
             int chosen_file_index = SessionMana.Initialize();
          

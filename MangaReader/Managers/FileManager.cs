@@ -15,12 +15,12 @@ using MangaReader.FileHandlers;
  */
 namespace MangaReader.Managers {
 
-    internal class FileManager {
+    public class FileManager {
 
         private  FileHandler FileHand;
         private int FileHandLength;
 
-        internal int Initialize() {
+        public int Initialize() {
             OpenFileDialog fileresult = new OpenFileDialog();
             fileresult.Filter = "Image Files (*.JPG;*.BMP;*.GIF;*.PNG)|*.JPG;*.BMP;*.GIF;*.PNG|Zip Files (*.ZIP)|*.ZIP"; 
             fileresult.FilterIndex = 2;
@@ -42,7 +42,7 @@ namespace MangaReader.Managers {
             return FileIndex;
         }
 
-        internal ImgStruct GetNextPos(ref int CurrentPosition) {
+        public ImgStruct GetNextPos(ref int CurrentPosition) {
             if (CurrentPosition < FileHandLength - 1) {
                 CurrentPosition++;
             } else {
@@ -56,7 +56,7 @@ namespace MangaReader.Managers {
                                  isLast);
         }
 
-        internal ImgStruct GetPrevPos(ref int CurrentPosition) {
+        public ImgStruct GetPrevPos(ref int CurrentPosition) {
             if (CurrentPosition > 0) {
                 CurrentPosition--;
             } else {
@@ -70,7 +70,7 @@ namespace MangaReader.Managers {
                                  isFront);
          }
         
-        internal ImgStruct getPicAtPos(ref int CurrentPosition) {
+        public ImgStruct getPicAtPos(ref int CurrentPosition) {
             if (CurrentPosition < 0) {
                 CurrentPosition = 0;
             }

@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace MangaReader.Threads {
 
-    internal class ImagePreload {
+    public class ImagePreload {
         protected Image[] imgArray;
         protected Task[] taskArray;
         protected readonly List<String> ImageNames;
@@ -29,7 +29,7 @@ namespace MangaReader.Threads {
             return tsk;
         }
 
-        internal virtual void LoadImages() {
+        public virtual void LoadImages() {
             int count = 0;
 
             foreach (String names in ImageNames) {
@@ -39,7 +39,7 @@ namespace MangaReader.Threads {
             Task.WaitAll(taskArray);
         }
 
-        internal virtual Image getImage(int position) {
+        public virtual Image getImage(int position) {
             return imgArray[position];
         }
     }

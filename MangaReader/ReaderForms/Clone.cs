@@ -11,7 +11,7 @@ using MangaReader.Managers;
 
 namespace MangaReader.ReaderForms {
 
-    internal partial class Clone : BasicReader {
+    public partial class Clone : BasicReader {
        
         public Clone(FileManager FileMana, 
                      WindowManager WinMan, 
@@ -19,7 +19,7 @@ namespace MangaReader.ReaderForms {
                      String headeraddon,
                      int pos_to_start = 0)
             : base(WinMan, FileMana ,pos_to_start, clonenum) {
-
+            this.MouseWheel += new MouseEventHandler(Reader_MouseWheel);
             InitializeComponent();
             this.Text = "MangaViewer Clone: " + clonenum + " " + headeraddon;
             PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -28,7 +28,7 @@ namespace MangaReader.ReaderForms {
 
         /*-------------Interface methods ------------------- */
 
-        internal PictureManager PicMana {
+        public PictureManager PicMana {
             get {
                 return PicMan;
             }

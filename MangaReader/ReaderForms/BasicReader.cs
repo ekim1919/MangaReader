@@ -12,7 +12,7 @@ using MangaReader.Events;
 
 namespace MangaReader.ReaderForms {
 
-    internal partial class BasicReader : Form {
+    public partial class BasicReader : Form {
 
         protected WindowManager WinMan;
         protected PictureManager PicMan;
@@ -44,7 +44,7 @@ namespace MangaReader.ReaderForms {
         }
 
         /* Method that changes the window form to go full screen or normal mode */
-        internal void ChangeFullScreen() { 
+        public void ChangeFullScreen() { 
             if(FullScreenMode) {
                WindowState = FormWindowState.Maximized;
                 FormBorderStyle = FormBorderStyle.None;

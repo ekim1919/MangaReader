@@ -7,7 +7,7 @@ using MangaReader.Initializers;
 using MangaReader.Managers;
 
 namespace MangaReader.MessageBoxes.LastFirst {
-    internal class FinishingObject: LastFirstObj {
+    public class FinishingObject: LastFirstObj {
 
         public FinishingObject() : base("You are passing the last page\n" +
                                                              " Do you wish to open a new folder?") {}

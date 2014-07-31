@@ -15,7 +15,7 @@ namespace MangaReader.Managers {
      * session is started 
      */
 
-   internal class WindowManager {
+   public class WindowManager {
        
         private List<PictureManager> CloneForms; //The Picture Manager of the Clone Form  
         private PictureManager PrimaryViewer;
@@ -26,7 +26,7 @@ namespace MangaReader.Managers {
             PrimaryViewer = PicMan; //Store the PrimaryViewer
         }
 
-        internal void ChangeFileManager(FileManager NewFileMana, int main_starting_position) {
+        public void ChangeFileManager(FileManager NewFileMana, int main_starting_position) {
             int main_position = PrimaryViewer.CurrentPos;
             foreach(PictureManager mana in CloneForms) {
                 int distance =  main_position - mana.CurrentPos;
@@ -35,7 +35,7 @@ namespace MangaReader.Managers {
             }
         }
 
-        internal void CreateNextBefore(PictureManager ReferenceMan) {
+        public void CreateNextBefore(PictureManager ReferenceMan) {
             AddtoCloneListandShow(
                 new Clone(
                      ReferenceMan.FileMana, 
@@ -45,7 +45,7 @@ namespace MangaReader.Managers {
                      ReferenceMan.CurrentPos - 1));
         }
 
-        internal void CreateNextAfter(PictureManager ReferenceMan) {
+        public void CreateNextAfter(PictureManager ReferenceMan) {
             AddtoCloneListandShow(
                   new Clone(ReferenceMan.FileMana, 
                        this, 
@@ -59,23 +59,23 @@ namespace MangaReader.Managers {
             CloneForms.Add(newClone.PicMana);
         }
 
-        internal void RemoveClone(PictureManager ManaToRm) {
+        public void RemoveClone(PictureManager ManaToRm) {
             CloneForms.Remove(ManaToRm); //Remove pointer to PictureManager ManatoRm once user disposes of Clone 
         }
 
-        internal void Next() {
+        public void Next() {
             foreach (PictureManager picman in CloneForms) {
                 picman.GotoNext();
             }
         }
 
-        internal void Back() {
+        public void Back() {
             foreach (PictureManager picman in CloneForms) {
                 picman.GoBack();
             }
         }
 
-        internal void ChangeFullScreenAll() {
+        public void ChangeFullScreenAll() {
             foreach(PictureManager picman in CloneForms) {
                 picman.ChangeReaderFullScreen();
             }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace MangaReader.MessageBoxes.LastFirst {
-   abstract class LastFirstObj {
+   public abstract class LastFirstObj {
         protected String Message;
         
         public LastFirstObj(String message) {

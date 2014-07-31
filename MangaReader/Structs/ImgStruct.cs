@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace MangaReader.Structs {
 
-    internal struct ImgStruct {
+    public struct ImgStruct {
         Image Img;
-        string Pathname;
+        String Pathname;
         bool IsLastorFirstImage;
 
         public ImgStruct(Image img, string pathname, bool islast) {
@@ -17,19 +17,19 @@ namespace MangaReader.Structs {
             IsLastorFirstImage = islast;
         }
 
-        internal Image getImg {
+        public Image getImg {
             get {
                 return Img;
             }
         }
 
-        internal string getPath {
+        public string getPath {
             get {
                 return Pathname;
             }
         }
 
-        internal bool getLastorFirstImage {
+        public bool getLastorFirstImage {
             get {
                 return IsLastorFirstImage;
             }
