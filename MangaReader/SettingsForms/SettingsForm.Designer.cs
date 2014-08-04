@@ -32,6 +32,7 @@
             this.components = new System.ComponentModel.Container();
             this.SettingsTab = new System.Windows.Forms.TabControl();
             this.Preferences = new System.Windows.Forms.TabPage();
+            this.SaveSessionCheckBox = new System.Windows.Forms.CheckBox();
             this.AlertCheckBox = new System.Windows.Forms.CheckBox();
             this.MonitorConfig = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -52,6 +53,7 @@
             // 
             // Preferences
             // 
+            this.Preferences.Controls.Add(this.SaveSessionCheckBox);
             this.Preferences.Controls.Add(this.AlertCheckBox);
             this.Preferences.Location = new System.Drawing.Point(4, 22);
             this.Preferences.Name = "Preferences";
@@ -60,6 +62,17 @@
             this.Preferences.TabIndex = 0;
             this.Preferences.Text = "Preferences";
             this.Preferences.UseVisualStyleBackColor = true;
+            // 
+            // SaveSessionCheckBox
+            // 
+            this.SaveSessionCheckBox.AutoSize = true;
+            this.SaveSessionCheckBox.Location = new System.Drawing.Point(27, 62);
+            this.SaveSessionCheckBox.Name = "SaveSessionCheckBox";
+            this.SaveSessionCheckBox.Size = new System.Drawing.Size(161, 17);
+            this.SaveSessionCheckBox.TabIndex = 1;
+            this.SaveSessionCheckBox.Text = "Ask to Save Current Session";
+            this.SaveSessionCheckBox.UseVisualStyleBackColor = true;
+            this.SaveSessionCheckBox.CheckedChanged += new System.EventHandler(this.SaveSessionCheckBox_CheckedChanged);
             // 
             // AlertCheckBox
             // 
@@ -109,5 +122,6 @@
         private System.Windows.Forms.TabPage MonitorConfig;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.CheckBox AlertCheckBox;
+        private System.Windows.Forms.CheckBox SaveSessionCheckBox;
     }
 }

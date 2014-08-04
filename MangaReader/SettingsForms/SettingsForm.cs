@@ -18,7 +18,7 @@ namespace MangaReader.SettingsForms {
 
         public SettingsForm(MainViewer parent) {
             InitializeComponent();
-            AlertCheckBox.Checked = Settings.Alerts;
+            AlertCheckBox.Checked = Settings.EndBeginAlerts;
             this.parent = parent;
         }
 
@@ -38,7 +38,11 @@ namespace MangaReader.SettingsForms {
         */
 
         private void AlertCheckBox_CheckedChanged(object sender, EventArgs e) {
-            Settings.Alerts = AlertCheckBox.Checked;
+            Settings.EndBeginAlerts = AlertCheckBox.Checked;
+        }
+
+        private void SaveSessionCheckBox_CheckedChanged(object sender, EventArgs e) {
+            Settings.SavedSessionAlerts = SaveSessionCheckBox.Checked;
         }
     }
  }

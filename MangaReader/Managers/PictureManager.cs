@@ -46,8 +46,8 @@ namespace MangaReader.Managers {
         public void GotoNext() {
             ImgStruct thisPic = FM.GetNextPos(ref CurrentPosition);
 
-            if (!Settings.Alerts || 
-                !thisPic.getLastorFirstImage ||
+            if (!Settings.EndBeginAlerts ||
+                !thisPic.IsLastorFirstImage ||
                 YesNoDialog.AskForAction(new FinishingObject())){
                     updatePic(thisPic);
             } else {
@@ -58,8 +58,8 @@ namespace MangaReader.Managers {
         public void GoBack() {
             ImgStruct thisPic = FM.GetPrevPos(ref CurrentPosition);
 
-            if (!Settings.Alerts ||
-                !thisPic.getLastorFirstImage ||
+            if (!Settings.EndBeginAlerts ||
+                !thisPic.IsLastorFirstImage ||
                 YesNoDialog.AskForAction(new BeginningObject())) {
                     updatePic(thisPic);
             } else {
@@ -68,8 +68,8 @@ namespace MangaReader.Managers {
         }
        
         public void updatePic(ImgStruct currentimg) {
-            thisform.LoadPic(currentimg.getImg);
-            thisform.ChangeDirectoryTextBox(currentimg.getPath);
+            thisform.LoadPic(currentimg.Img);
+            thisform.ChangeDirectoryTextBox(currentimg.Pathname);
         }
 
         public void ChangeReaderFullScreen() {
@@ -99,6 +99,5 @@ namespace MangaReader.Managers {
                 return FormNumber;
             }
         }
-
     }
 }

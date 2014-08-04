@@ -6,6 +6,7 @@ using System.Text;
 namespace MangaReader.Initializers
 {
     internal static class Settings {
-        internal static bool Alerts = false;            
+        public static bool EndBeginAlerts = false;
+        public static bool SavedSessionAlerts = false;   
     }
 }
