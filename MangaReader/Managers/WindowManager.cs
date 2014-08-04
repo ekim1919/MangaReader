@@ -29,9 +29,9 @@ namespace MangaReader.Managers {
         public void ChangeFileManager(FileManager NewFileMana, int main_starting_position) {
             int main_position = PrimaryViewer.CurrentPos;
             foreach(PictureManager mana in CloneForms) {
-                int distance =  main_position - mana.CurrentPos;
+                int distance =  mana.CurrentPos - main_position;
                 mana.FileMana = NewFileMana;
-                mana.Initialize(main_starting_position - distance);
+                mana.Initialize(main_starting_position + distance);
             }
         }
 
@@ -39,7 +39,6 @@ namespace MangaReader.Managers {
             AddtoCloneListandShow(
                 new Clone(
                      ReferenceMan.FileMana, 
-                     this, 
                      CloneForms.Count + 1, 
                     "Before Clone: " + ReferenceMan.FormNum, 
                      ReferenceMan.CurrentPos - 1));
@@ -47,8 +46,8 @@ namespace MangaReader.Managers {
 
         public void CreateNextAfter(PictureManager ReferenceMan) {
             AddtoCloneListandShow(
-                  new Clone(ReferenceMan.FileMana, 
-                       this, 
+                 new Clone(
+                       ReferenceMan.FileMana, 
                        CloneForms.Count + 1, 
                       "After Clone: " + ReferenceMan.FormNum, 
                        ReferenceMan.CurrentPos + 1));

@@ -14,7 +14,6 @@ namespace MangaReader.ReaderForms {
 
     public partial class BasicReader : Form {
 
-        protected WindowManager WinMan;
         protected PictureManager PicMan;
         protected bool FullScreenMode;
 
@@ -22,15 +21,13 @@ namespace MangaReader.ReaderForms {
 
         public BasicReader() {
             InitializeComponent();
-            WinMan = null;
             PicMan = null;
             ThisFormZoom = null;
             FullScreenMode = false;
         }
 
-        public BasicReader(WindowManager winman, FileManager mana, int pos_to_start, int formnumber) {
+        public BasicReader(FileManager mana, int pos_to_start, int formnumber) {
             InitializeComponent();
-            WinMan = winman;
             PicMan = new PictureManager(mana, this, pos_to_start, formnumber);
         }
 

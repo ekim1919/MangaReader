@@ -13,12 +13,11 @@ namespace MangaReader.ReaderForms {
 
     public partial class Clone : BasicReader {
        
-        public Clone(FileManager FileMana, 
-                     WindowManager WinMan, 
+        public Clone(FileManager FileMana,  
                      int clonenum,  
                      String headeraddon,
                      int pos_to_start = 0)
-            : base(WinMan, FileMana ,pos_to_start, clonenum) {
+            : base(FileMana ,pos_to_start, clonenum) {
             this.MouseWheel += new MouseEventHandler(Reader_MouseWheel);
             InitializeComponent();
             this.Text = "MangaViewer Clone: " + clonenum + " " + headeraddon;
@@ -45,16 +44,14 @@ namespace MangaReader.ReaderForms {
 
         private void Clone_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode.Equals(Keys.Space)) {
-                WinMan.Next();
+                SessionManager.NextPicture();
             } else if (e.KeyCode.Equals(Keys.Back)) {
-                WinMan.Back();
+                SessionManager.PrevPicture();
             }
         }
 
         private void fullScreenModeToolStripMenuItem_Click(object sender, EventArgs e) {
-            WinMan.ChangeFullScreenAll();
+            SessionManager.ChangeFullScreenMode();
         }
-
-
     }
 }

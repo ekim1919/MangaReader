@@ -34,8 +34,7 @@ namespace MangaReader.ReaderForms {
                         this,
                         chosen_file_index,
                         1);
-                WinMan = new WindowManager(PicMan); //Create Window Manager for Current Session
-                SessionInitializer.WinMan = WinMan; //Set WindowsManager for Static class responsible for reinitialization
+                SessionManager.CreateWinMan(PicMan); //Set WindowsManager for Static class responsible for reinitialization
             }
         }
 
@@ -45,20 +44,16 @@ namespace MangaReader.ReaderForms {
             if (PicMan == null) {
                 InitializeSession();
             } else {
-                SessionInitializer.newFileManager();
+                SessionManager.newFileManager();
             }
         }
 
         private void BeforeOption_Click(object sender, EventArgs e) {
-            if (PicMan != null) { // Do not create clone if session is not initialized 
-                WinMan.CreateNextBefore(PicMan);
-            } 
+            SessionManager.CreateBeforeClone(PicMan);
         }
 
         private void AfterOption_Click(object sender, EventArgs e) {
-            if (PicMan != null) {
-                WinMan.CreateNextAfter(PicMan);
-            }
+            SessionManager.CreateAfterClone(PicMan);
         }
 
         private void zoomToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -70,17 +65,15 @@ namespace MangaReader.ReaderForms {
         }
 
         private void Viewer_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode.Equals(Keys.Space) && WinMan != null) {
-                WinMan.Next();
-            } else if (e.KeyCode.Equals(Keys.Back) && WinMan != null) {
-                WinMan.Back();
+            if (e.KeyCode.Equals(Keys.Space)) {
+                SessionManager.NextPicture();
+            } else if (e.KeyCode.Equals(Keys.Back)) {
+                SessionManager.PrevPicture();
             }
         }
 
         private void fullScreenModeToolStripMenuItem_Click(object sender, EventArgs e) {
-            if(WinMan != null) {
-                WinMan.ChangeFullScreenAll();
-            }
+            SessionManager.ChangeFullScreenMode();
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) {

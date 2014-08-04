@@ -1,4 +1,5 @@
-﻿namespace MangaReader.ReaderForms {
+﻿using MangaReader.Managers;
+namespace MangaReader.ReaderForms {
 
     partial class Clone {
         /// <summary>
@@ -10,10 +11,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            WinMan.RemoveClone(PicMan); //Remove Pointer from WindowManager 
-
+        protected override void Dispose(bool disposing) {
+            SessionManager.RemoveClonePicMan(PicMan); //Remove reference from WindowManager. Notify Session Manager to remove from Windows Manager
             if (disposing && (components != null))
             {
                 components.Dispose();
