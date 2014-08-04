@@ -21,23 +21,17 @@ namespace MangaReader.FileHandlers {
         public override int initializeImgList() {
             FileNames = new List<String>(); 
             String[] Temp = Directory.GetFiles(DirPathName);
-            int chosenIndex = 0;
 
-            for (int i = 0; i < Temp.Length; i++) {
-                String file = Temp[i];
+            foreach (String file in Temp) {
                 if ((Path.GetExtension(file) == ".jpg") || 
                     (Path.GetExtension(file) == ".bmp") || 
                     (Path.GetExtension(file) == ".gif") || 
                     (Path.GetExtension(file) == ".png")) {
                     FileNames.Add(file);
-              
-                    if(SelectedFilePathName.Equals(file)) {
-                        chosenIndex = i;
-                    }
                 }
             }
             initializePreload(FileNames);
-            return chosenIndex;
+            return FileNames.IndexOf(SelectedFilePathName);
         }
 
         public override Image getImage(int position) {
