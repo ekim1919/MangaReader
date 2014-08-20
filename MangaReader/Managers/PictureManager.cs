@@ -58,7 +58,6 @@ namespace MangaReader.Managers {
             } else {
                 PageMode.getPrevPos(ref CurrentPosition); //Revert back to last picture 
             }
-            System.Diagnostics.Debug.Write(CurrentPosition);
         }
 
         public void GoBack() {
@@ -72,7 +71,6 @@ namespace MangaReader.Managers {
             } else {
                 PageMode.getNextPos(ref CurrentPosition);
             }
-            System.Diagnostics.Debug.Write(CurrentPosition);
         }
        
         public void updatePic(ImgStruct currentimg) {
