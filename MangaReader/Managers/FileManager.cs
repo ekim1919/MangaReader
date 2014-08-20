@@ -43,39 +43,35 @@ namespace MangaReader.Managers {
         }
 
         public ImgStruct GetNextPos(ref int CurrentPosition) {
-            if (CurrentPosition < FileHandLength - 1) {
-                CurrentPosition++;
-            } else {
-                CurrentPosition = 0; //Start from the beginning  
-            }
+            bool has_reached_end = CurrentPosition > FileHandLength - 1;
 
-            bool isLast = (CurrentPosition == 0);
+            if (has_reached_end && CurrentPosition != FileHandLength - 1) {
+                CurrentPosition -= FileHandLength;
+            }
 
             return new ImgStruct(FileHand.getImage(CurrentPosition),
                                  FileHand.getImagePath(CurrentPosition),
-                                 isLast);
+                                 has_reached_end);
         }
 
         public ImgStruct GetPrevPos(ref int CurrentPosition) {
-            if (CurrentPosition > 0) {
-                CurrentPosition--;
-            } else {
-                CurrentPosition = FileHandLength - 1; //Start from end. 
-            }
+            bool has_reached_beginning = CurrentPosition < 0;
 
-            bool isFront = (CurrentPosition == FileHandLength - 1);
+            if (has_reached_beginning && CurrentPosition != 0) {
+                CurrentPosition += FileHandLength;
+            }
 
             return new ImgStruct(FileHand.getImage(CurrentPosition),
                                  FileHand.getImagePath(CurrentPosition),
-                                 isFront);
+                                 has_reached_beginning);
          }
         
         public ImgStruct getPicAtPos(ref int CurrentPosition) {
             if (CurrentPosition < 0) {
-                CurrentPosition = 0;
+                CurrentPosition += FileHandLength;
             }
             else if (CurrentPosition > FileHandLength - 1) {
-                CurrentPosition = FileHandLength - 1;
+                CurrentPosition -= FileHandLength;
             }
 
             return new ImgStruct(FileHand.getImage(CurrentPosition),

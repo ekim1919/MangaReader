@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using MangaReader.Modes;
 namespace MangaReader.Managers {
 
     public static class SessionManager {
@@ -42,13 +43,13 @@ namespace MangaReader.Managers {
 
         public static void CreateBeforeClone(PictureManager picman) {
             if (picman != null) {   // Do not create clone if session is not initialized 
-                WinMan.CreateNextBefore(picman);
+                WinMan.CreateNextBefore(picman, new DefaultMode());
             }
         }
 
         public static void CreateAfterClone(PictureManager picman) {
             if (picman != null) {
-                WinMan.CreateNextAfter(picman);
+                WinMan.CreateNextAfter(picman, new DefaultMode());
             }
         }
 

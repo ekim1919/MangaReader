@@ -1,4 +1,5 @@
-﻿namespace MangaReader.ReaderForms {
+﻿using MangaReader.Initializers;
+namespace MangaReader.ReaderForms {
     partial class MainViewer
     {
         /// <summary>
@@ -12,6 +13,10 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            if (Settings.SavedSessionAlerts) {
+
+            }
+
             if (disposing && (components != null))
             {
                 components.Dispose();

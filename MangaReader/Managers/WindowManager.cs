@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Threading;
 
 using MangaReader.ReaderForms;
+using MangaReader.Modes;
 
 namespace MangaReader.Managers {
 
@@ -35,21 +36,23 @@ namespace MangaReader.Managers {
             }
         }
 
-        public void CreateNextBefore(PictureManager ReferenceMan) {
+        public void CreateNextBefore(PictureManager ReferenceMan, Mode pageMode) {
             AddtoCloneListandShow(
                 new Clone(
                      ReferenceMan.FileMana, 
                      CloneForms.Count + 1, 
-                    "Before Clone: " + ReferenceMan.FormNum, 
+                    "Before Clone: " + ReferenceMan.FormNum,
+                     pageMode, 
                      ReferenceMan.CurrentPos - 1));
         }
 
-        public void CreateNextAfter(PictureManager ReferenceMan) {
+        public void CreateNextAfter(PictureManager ReferenceMan, Mode pageMode) {
             AddtoCloneListandShow(
                  new Clone(
                        ReferenceMan.FileMana, 
                        CloneForms.Count + 1, 
-                      "After Clone: " + ReferenceMan.FormNum, 
+                      "After Clone: " + ReferenceMan.FormNum,
+                       pageMode,
                        ReferenceMan.CurrentPos + 1));
         }
 

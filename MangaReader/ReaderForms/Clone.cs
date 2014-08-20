@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using MangaReader.Managers;
+using MangaReader.Modes;
 
 namespace MangaReader.ReaderForms {
 
@@ -16,8 +17,9 @@ namespace MangaReader.ReaderForms {
         public Clone(FileManager FileMana,  
                      int clonenum,  
                      String headeraddon,
+                     Mode pageMode,
                      int pos_to_start = 0)
-            : base(FileMana ,pos_to_start, clonenum) {
+            : base(FileMana ,pos_to_start, clonenum, pageMode) {
             this.MouseWheel += new MouseEventHandler(Reader_MouseWheel);
             InitializeComponent();
             this.Text = "MangaViewer Clone: " + clonenum + " " + headeraddon;

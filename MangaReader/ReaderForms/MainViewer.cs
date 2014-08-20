@@ -12,6 +12,7 @@ using System.Collections;
 using MangaReader.Managers;
 using MangaReader.Initializers;
 using MangaReader.SettingsForms;
+using MangaReader.Modes;
 
 namespace MangaReader.ReaderForms {
  
@@ -31,9 +32,10 @@ namespace MangaReader.ReaderForms {
             //Create Picture Manager for the Main Viewer  
             if(chosen_file_index >= 0) {           
                 PicMan = new PictureManager(SessionMana,
-                        this,
-                        chosen_file_index,
-                        1);
+                                            this,
+                                            chosen_file_index,
+                                            1,
+                                            new DefaultMode());
                 SessionManager.CreateWinMan(PicMan); //Set WindowsManager for Static class responsible for reinitialization
             }
         }
