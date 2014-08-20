@@ -44,7 +44,7 @@ namespace MangaReader.FileHandlers {
         }
 
         ~ZipHandler() {
-            file.Dispose(); //Esnure disposal of IDisposable object, ZipFile
+            file.Dispose(); //Ensure disposal of IDisposable object, ZipFile
         }
     }
 }

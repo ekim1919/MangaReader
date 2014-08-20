@@ -54,7 +54,7 @@ namespace MangaReader.Events {
                 tempGraphics.Dispose();
 
                 Image oldPic = reader.Image;
-                if(oldPic != ThisPic) {
+                if (oldPic != ThisPic) {
                     oldPic.Dispose();
                 }
                 reader.Image = newMap;

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using MangaReader.Managers;
 using MangaReader.Events;
+using MangaReader.Modes;
 
 namespace MangaReader.ReaderForms {
 
@@ -26,9 +27,9 @@ namespace MangaReader.ReaderForms {
             FullScreenMode = false;
         }
 
-        public BasicReader(FileManager mana, int pos_to_start, int formnumber) {
+        public BasicReader(FileManager mana, int pos_to_start, int formnumber, Mode pageMode) {
             InitializeComponent();
-            PicMan = new PictureManager(mana, this, pos_to_start, formnumber);
+            PicMan = new PictureManager(mana, this, pos_to_start, formnumber, pageMode);
         }
 
         public void LoadPic(Image img) {

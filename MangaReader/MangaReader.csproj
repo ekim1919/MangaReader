@@ -69,8 +69,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Structures\CirList.cs" />
     <Compile Include="Database\SessionDBConnCreator.cs" />
     <Compile Include="Database\SessionDB.cs" />
+    <Compile Include="EndRoutines\SessionDBSaver.cs" />
     <Compile Include="Events\ZoomManager.cs" />
     <Compile Include="FileHandlers\ImgonDiskHandler.cs" />
     <Compile Include="Initializers\ReaderInitializer.cs" />
@@ -80,6 +82,9 @@
     <Compile Include="MessageBoxes\LastFirst\FinishingObject.cs" />
     <Compile Include="MessageBoxes\LastFirst\LastFirstObj.cs" />
     <Compile Include="MessageBoxes\YesNoDialog.cs" />
+    <Compile Include="Modes\DefaultMode.cs" />
+    <Compile Include="Modes\DualMode.cs" />
+    <Compile Include="Modes\Mode.cs" />
     <Compile Include="MultiMonitor\MonitorInfo.cs" />
     <Compile Include="MultiMonitor\ReaderMover.cs" />
     <Compile Include="Program.cs" />
