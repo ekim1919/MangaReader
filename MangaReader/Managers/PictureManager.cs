@@ -72,7 +72,6 @@ namespace MangaReader.Managers {
             } else {
                 PageMode.getNextPos(ref CurrentPosition);
             }
-            System.Diagnostics.Debug.Write(CurrentPosition);
         }
        
         public void updatePic(ImgStruct currentimg) {

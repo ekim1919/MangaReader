@@ -31,3 +31,4 @@ C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.cspr
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.ReaderForms.MainViewer.resources
 C:\Users\Edward\Documents\MangaViewer\MangaReader\obj\x86\Debug\MangaReader.SettingsForms.SettingsForm.resources
 C:\Users\Edward\Documents\MangaViewer\MangaReader\bin\Debug\Ionic.Zip.dll
+C:\Users\Edward\Documents\MangaViewer\MangaReader\bin\Debug\MangaReader.exe.config

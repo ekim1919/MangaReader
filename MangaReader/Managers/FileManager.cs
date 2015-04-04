@@ -9,6 +9,7 @@ using System.Drawing;
 
 using MangaReader.Structs;
 using MangaReader.FileHandlers;
+using MangaReader.Utility;
 /*  
  * 
  * FileManager Class: The class responsible for 
@@ -46,7 +47,7 @@ namespace MangaReader.Managers {
             bool has_reached_end = CurrentPosition > FileHandLength - 1;
 
             if (has_reached_end && CurrentPosition != FileHandLength - 1) {
-                CurrentPosition -= FileHandLength;
+                CurrentPosition = Utilities.mod(CurrentPosition, FileHandLength);
             }
 
             return new ImgStruct(FileHand.getImage(CurrentPosition),
@@ -58,7 +59,7 @@ namespace MangaReader.Managers {
             bool has_reached_beginning = CurrentPosition < 0;
 
             if (has_reached_beginning && CurrentPosition != 0) {
-                CurrentPosition += FileHandLength;
+                CurrentPosition = Utilities.mod(CurrentPosition, FileHandLength);
             }
 
             return new ImgStruct(FileHand.getImage(CurrentPosition),
@@ -67,18 +68,14 @@ namespace MangaReader.Managers {
          }
         
         public ImgStruct getPicAtPos(ref int CurrentPosition) {
-            if (CurrentPosition < 0) {
-                CurrentPosition += FileHandLength;
-            }
-            else if (CurrentPosition > FileHandLength - 1) {
-                CurrentPosition -= FileHandLength;
+            if ((CurrentPosition < 0) || (CurrentPosition > FileHandLength - 1)) {
+                CurrentPosition = Utilities.mod(CurrentPosition, FileHandLength);
             }
 
             return new ImgStruct(FileHand.getImage(CurrentPosition),
                                  FileHand.getImagePath(CurrentPosition),
                                  false);
         }
-
     }
 }
 

@@ -114,7 +114,7 @@ namespace MangaReader.ReaderForms {
             this.zoomToolStripMenuItem,
             this.centerToolStripMenuItem});
             this.scaleToolStripMenuItem1.Name = "scaleToolStripMenuItem1";
-            this.scaleToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
+            this.scaleToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
             this.scaleToolStripMenuItem1.Text = "Scale";
             // 
             // zoomToolStripMenuItem
@@ -134,14 +134,14 @@ namespace MangaReader.ReaderForms {
             // fullScreenModeToolStripMenuItem
             // 
             this.fullScreenModeToolStripMenuItem.Name = "fullScreenModeToolStripMenuItem";
-            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.fullScreenModeToolStripMenuItem.Text = "Full Screen Mode";
             this.fullScreenModeToolStripMenuItem.Click += new System.EventHandler(this.fullScreenModeToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 

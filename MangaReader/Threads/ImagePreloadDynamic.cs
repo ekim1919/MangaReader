@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Diagnostics;
+
+using MangaReader.Utility;
 
 namespace MangaReader.Threads {
 
@@ -11,21 +14,26 @@ namespace MangaReader.Threads {
      * Instead of Threading the Disk IO Picture Retrieval all at once like ImagePreload. 
      * It only threads the pictures in a local area (the previous, current, and next picture) 
      * This decreases the session initialization time.
-     * TODOs: Add a memory recycling option because it keeps all the pictures (bitmaps) in memory. 
-     * Thread Manager
+     * NOTE: This implementation is very simple. Only supports moving forward and backwards by one picture. I have to think of something more complex later.
      */
-    public class ImagePreloadDynamic : ImagePreload {
-        private int initialIndex;
-        
-        public ImagePreloadDynamic(List<String> pathname, int initial_index) : base(pathname) {
-            initialIndex = initial_index;
-        }
+    public class ImagePreloadDynamic : NaiveImagePreload {
+        private int currentPosition;
 
-        public override void LoadImages() {
-            LoadThreads(initialIndex);
+        public ImagePreloadDynamic(List<String> pathname) : base(pathname) { isTouched = false; }
+
+        public override void LoadImages(int initialIndex) { //Procedure called directly after creating object
+            int BeforeInitial = Utilities.mod(initialIndex-1,ImageNames.Count);
+            int AfterInitial = Utilities.mod(initialIndex + 1,ImageNames.Count); 
+            taskArray[initialIndex] = createTask(ImageNames[initialIndex], initialIndex);
+            taskArray[BeforeInitial] = createTask(ImageNames[BeforeInitial], BeforeInitial);
+            taskArray[AfterInitial] = createTask(ImageNames[AfterInitial], AfterInitial);
+            isTouched = true; //An access was recorded and the preloader was touched
         }
 
         public override Image getImage(int position) {
+            //Debug.Assert((position == mod(currentPosition + 1) || (position == mod(currentPosition - 1)) || (position == currentPosition))); //This is made for only modes which go one page at a time
+           
+
             Task wantedTsk = taskArray[position];
             if(!wantedTsk.IsCompleted) {
                 wantedTsk.Wait();
@@ -35,19 +43,22 @@ namespace MangaReader.Threads {
         }
 
         public void LoadThreads(int position) {
-            int[] threadStart = { position - 1, position, position + 1 };
-            for (int i = 0; i < 3; i++) {
-                int index = threadStart[i];
-                if (index >= 0 &&
-                     index < ImageNames.Count &&
-                     imgArray[index] == null) {
-                     taskArray[index] = createTask(ImageNames[index], index);
-                } 
+            int newPos = 0; 
+            if(position == mod(currentPosition + 1)) { //Moved Forward
+                imgArray[mod(currentPosition - 1)].Dispose(); //Dynamically Disposing of pictures not in a one picture radius around the position used.
+                newPos = mod(position+1);
             }
+            else if (position == currentPosition - 1) { //Moved Backwards
+                imgArray[mod(currentPosition + 1)].Dispose();
+                newPos = mod(position-1);
+            }
+            taskArray[newPos] = createTask(ImageNames[newPos],newPos); 
+            currentPosition = position;
         }
-        
-       // private class ThreadManager {
-        //    Queue<Task> 
-        //}
+
+        private int mod(int x) {
+            return Utilities.mod(x, ImageNames.Count);
+        }
     }
+
 }

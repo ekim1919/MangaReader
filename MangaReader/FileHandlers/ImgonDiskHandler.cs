@@ -11,7 +11,7 @@ namespace MangaReader.FileHandlers {
 
         private String DirPathName;
         private String SelectedFilePathName;
-        private ImagePreload Images;
+        private NaiveImagePreload Images;
 
         public ImgonDiskHandler(String pathnameToFile) {
             SelectedFilePathName = pathnameToFile;
@@ -35,12 +35,12 @@ namespace MangaReader.FileHandlers {
         }
 
         public override Image getImage(int position) {
+            if (!Images.isTouch) { Images.LoadImages(position);} //We load the initial set of images when a picture manager ask for one. 
             return Images.getImage(position);
         }
 
         private void initializePreload(List<String> fileNames) {
-            Images = new ImagePreload(fileNames);
-            Images.LoadImages();
+            Images = new ImagePreloadDynamic(fileNames); //Testing for now
         }
     }
 }

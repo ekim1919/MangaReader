@@ -14,6 +14,7 @@ using MangaReader.Initializers;
 using MangaReader.SettingsForms;
 using MangaReader.Modes;
 
+
 namespace MangaReader.ReaderForms {
  
    public partial class MainViewer : BasicReader {
@@ -23,6 +24,7 @@ namespace MangaReader.ReaderForms {
             this.MouseWheel += new MouseEventHandler(Reader_MouseWheel);
             PictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             this.Text = "MangaReader Form: 1";
+            (new ReaderInitializer()).PrepareDatabase();
         }
 
         private void InitializeSession() { //Work on initialization
