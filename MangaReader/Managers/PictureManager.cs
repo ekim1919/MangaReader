@@ -58,7 +58,6 @@ namespace MangaReader.Managers {
             } else {
                 PageMode.getPrevPos(ref CurrentPosition); //Revert back to last picture 
             }
-            System.Diagnostics.Debug.Write(CurrentPosition);
         }
 
         public void GoBack() {
