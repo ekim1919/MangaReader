@@ -63,7 +63,7 @@ namespace MangaReader.ReaderForms {
             this.autoSizeToolStripMenuItem,
             this.centerToolStripMenuItem});
             this.scaleToolStripMenuItem.Name = "scaleToolStripMenuItem";
-            this.scaleToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.scaleToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.scaleToolStripMenuItem.Text = "Scale";
             // 
             // autoSizeToolStripMenuItem
@@ -83,7 +83,7 @@ namespace MangaReader.ReaderForms {
             // fullScreenModeToolStripMenuItem
             // 
             this.fullScreenModeToolStripMenuItem.Name = "fullScreenModeToolStripMenuItem";
-            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.fullScreenModeToolStripMenuItem.Text = "Full Screen Mode";
             this.fullScreenModeToolStripMenuItem.Click += new System.EventHandler(this.fullScreenModeToolStripMenuItem_Click);
             // 

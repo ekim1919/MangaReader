@@ -45,6 +45,7 @@ namespace MangaReader.ReaderForms {
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullScreenModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sessionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,8 @@ namespace MangaReader.ReaderForms {
             this.cloneToolStripMenuItem,
             this.scaleToolStripMenuItem1,
             this.fullScreenModeToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.sessionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(875, 24);
@@ -145,6 +147,12 @@ namespace MangaReader.ReaderForms {
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // sessionsToolStripMenuItem
+            // 
+            this.sessionsToolStripMenuItem.Name = "sessionsToolStripMenuItem";
+            this.sessionsToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.sessionsToolStripMenuItem.Text = "Sessions";
+            // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
@@ -207,6 +215,7 @@ namespace MangaReader.ReaderForms {
         private System.Windows.Forms.ToolStripMenuItem fullScreenModeToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sessionsToolStripMenuItem;
     }
 }
 

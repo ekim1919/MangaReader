@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using MangaReader.Database;
+using MangaReader.Structs;
 
 namespace MangaReader.Initializers
 {
@@ -15,12 +16,7 @@ namespace MangaReader.Initializers
      */ 
     public class ReaderInitializer {
 
-        public ReaderInitializer () {}
-
-        public void PrepareDatabase() {
-            //Database sanity checkign and/or initialization techniques.
-            SessionDB database = new SessionDB();
-        }
+        public ReaderInitializer () { }
        
     }
 }

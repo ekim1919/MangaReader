@@ -15,7 +15,7 @@ namespace MangaReader.MessageBoxes {
 
             DialogResult res = MessageBox.Show(actionObj.getMessage(), caption, confirmation);
 
-            return (res == DialogResult.Yes) ? actionObj.YesAction() : 
+            return (res == DialogResult.Yes) ? actionObj.YesAction(): 
                                                actionObj.NoAction();
         }
     }
