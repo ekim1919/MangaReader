@@ -13,7 +13,7 @@ namespace MangaReader.MessageBoxes.LastFirst {
                                                              " Do you wish to open a new folder?") {}
 
         public override bool YesAction() {
-            SessionManager.newFileManager();
+            SessionManager.newFileManagerThroughDialog();
             return false;
         }
 

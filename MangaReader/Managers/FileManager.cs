@@ -21,7 +21,7 @@ namespace MangaReader.Managers {
         private  FileHandler FileHand;
         private int FileHandLength;
 
-        public int Initialize() {
+        public int InitializeThroughDialog() {
             OpenFileDialog fileresult = new OpenFileDialog();
             fileresult.Filter = "Image Files (*.JPG;*.BMP;*.GIF;*.PNG)|*.JPG;*.BMP;*.GIF;*.PNG|Zip Files (*.ZIP)|*.ZIP"; 
             fileresult.FilterIndex = 2;
@@ -30,8 +30,7 @@ namespace MangaReader.Managers {
 
             if (fileresult.ShowDialog() == DialogResult.OK) {
                 try {
-                    FileHand = (Path.GetExtension(fileresult.FileName).Equals(".zip")) ? (FileHandler) new ZipHandler(fileresult.FileName) :
-                                                                                         (FileHandler) new ImgonDiskHandler(fileresult.FileName);
+                    FileHand = getFileHand(fileresult.FileName);
                     FileIndex = FileHand.initializeImgList();
                     FileHandLength = FileHand.getImgListLen();
 
@@ -41,6 +40,22 @@ namespace MangaReader.Managers {
             } 
 
             return FileIndex;
+        }
+
+        /*
+         *   
+         */
+        public int InitializeThroughPathName(String pathName) {
+            FileHand = getFileHand(pathName);
+            int FileIndex = FileHand.initializeImgList();
+            FileHandLength = FileHand.getImgListLen();
+
+            return FileIndex;
+        }
+
+        private FileHandler getFileHand(String pathName) {
+            return (Path.GetExtension(pathName).Equals(".zip")) ? (FileHandler)new ZipHandler(pathName) :
+                                                                             (FileHandler)new ImgonDiskHandler(pathName);
         }
 
         public ImgStruct GetNextPos(ref int CurrentPosition) {
@@ -75,6 +90,10 @@ namespace MangaReader.Managers {
             return new ImgStruct(FileHand.getImage(CurrentPosition),
                                  FileHand.getImagePath(CurrentPosition),
                                  false);
+        }
+
+        public String getPathNameatPos(int CurrentPosition) {
+            return FileHand.getImagePath(CurrentPosition);
         }
     }
 }

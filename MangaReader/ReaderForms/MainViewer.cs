@@ -43,12 +43,12 @@ namespace MangaReader.ReaderForms {
         }
 
         private void InitializeSession() { //Work on initialization
-            FileManager SessionMana = new FileManager();
-            int chosen_file_index = SessionMana.Initialize();
+            FileManager fileMana = new FileManager();
+            int chosen_file_index = fileMana.InitializeThroughDialog();
          
             //Create Picture Manager for the Main Viewer  
             if(chosen_file_index >= 0) {           
-                PicMan = new PictureManager(SessionMana,
+                PicMan = new PictureManager(fileMana,
                                             this,
                                             chosen_file_index,
                                             1,
@@ -63,7 +63,7 @@ namespace MangaReader.ReaderForms {
             if (PicMan == null) {
                 InitializeSession();
             } else {
-                SessionManager.newFileManager();
+                SessionManager.newFileManagerThroughDialog();
             }
         }
 
@@ -82,7 +82,7 @@ namespace MangaReader.ReaderForms {
         private void centerToolStripMenuItem_Click(object sender, EventArgs e) {
             PictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
         }
-
+       
         private void Viewer_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode.Equals(Keys.Space)) {
                 SessionManager.NextPicture();
@@ -102,18 +102,14 @@ namespace MangaReader.ReaderForms {
         }
 
         private void populuateSessionToolStrip(List<DBStruct> list) { //Populates the sessionToolStrip.
+
+            ToolStripMenuItem addSession = new ToolStripMenuItem("New Session");
+            addSession.Click += new EventHandler((sender, e) => saveSession(sender, e, PicMan.CurrentPos, (PicMan.FileMana).getPathNameatPos(PicMan.CurrentPos)));
+
+            sessionsToolStripMenuItem.DropDownItems.Add(addSession);
+
             foreach(DBStruct i in list) {
-                ToolStripMenuItem nestedOptions = new ToolStripMenuItem(i.Pathname);
-
-                ToolStripMenuItem selectSession = new ToolStripMenuItem("Use Session");
-                selectSession.Click += new EventHandler((sender, e) => useSession(sender, e, selectSession, i.Pathname));
-
-                ToolStripMenuItem deleteSession = new ToolStripMenuItem("Delete Session");
-                deleteSession.Click += new EventHandler((sender,e) => removeSession(sender,e,deleteSession, i.Pathname));
-
-                nestedOptions.DropDownItems.Add(selectSession);
-                nestedOptions.DropDownItems.Add(deleteSession);
-                sessionsToolStripMenuItem.DropDownItems.Add(nestedOptions);
+                sessionsToolStripMenuItem.DropDownItems.Add(nestedOptionSessionItem(i.Pathname,i.SavedPos));
             }
         }
 
@@ -122,11 +118,41 @@ namespace MangaReader.ReaderForms {
            sessionsToolStripMenuItem.DropDownItems.Remove(menuItem);
         }
 
-        private void useSession(object sender, EventArgs e, ToolStripMenuItem menuItem, String pathname){
-
+        private void useSession(object sender, EventArgs e, ToolStripMenuItem menuItem, String pathname, int pos) {
+            if(SessionManager.WinManNotInit) {
+                FileManager filemana = new FileManager();
+                filemana.InitializeThroughPathName(pathname);
+                PicMan = new PictureManager(filemana,
+                                this,
+                                pos,
+                                1,
+                                new DefaultMode());
+                SessionManager.CreateWinMan(PicMan);
+            } else {
+                SessionManager.newFileManager(pathname, pos);
+            }
         }
 
-        
+        private void saveSession(object sender, EventArgs e, int currentPos, String pathName) {
+            sessionsToolStripMenuItem.DropDownItems.Add(nestedOptionSessionItem(pathName,PicMan.CurrentPos));
+            database.saveSessionintoDB(pathName,currentPos,0); //Mode will be default 0 for now until I figure out something to do with it.
+        }
+
+        private ToolStripMenuItem nestedOptionSessionItem(String pathName, int pos) {
+            ToolStripMenuItem nestedOptions = new ToolStripMenuItem(pathName);
+
+            ToolStripMenuItem selectSession = new ToolStripMenuItem("Use Session");
+            selectSession.Click += new EventHandler((sender, e) => useSession(sender, e, nestedOptions, pathName,pos));
+
+            ToolStripMenuItem deleteSession = new ToolStripMenuItem("Delete Session");
+            deleteSession.Click += new EventHandler((sender, e) => removeSession(sender, e, nestedOptions, pathName));
+
+            nestedOptions.DropDownItems.Add(selectSession);
+            nestedOptions.DropDownItems.Add(deleteSession);
+
+            return nestedOptions;
+        }
+
 
     }
 

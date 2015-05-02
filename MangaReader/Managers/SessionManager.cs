@@ -14,13 +14,23 @@ namespace MangaReader.Managers {
             WinMan = new WindowManager(picman);
         }
 
-        public static void newFileManager() {
+        /*
+         * This method is to intialize a new file manager and initialize through a dialog where the user can choose his/her file.
+         */
+        public static void newFileManagerThroughDialog() {
             FileManager newSession = new FileManager();
-            int chosen_file_index = newSession.Initialize();
+            int chosen_file_index = newSession.InitializeThroughDialog();
 
-            if (chosen_file_index >= 0) {
+            if ((chosen_file_index >= 0) && (WinMan != null)) {
                 WinMan.ChangeFileManager(newSession, chosen_file_index);
             }
+        }
+
+        public static void newFileManager(String pathName, int posToInit) {
+            FileManager newSession = new FileManager();
+            int chosen_file_index = newSession.InitializeThroughPathName(pathName);
+
+            WinMan.ChangeFileManager(newSession, posToInit);
         }
 
         public static void NextPicture() {
@@ -55,6 +65,12 @@ namespace MangaReader.Managers {
 
         public static void RemoveClonePicMan(PictureManager picman) {
             WinMan.RemoveClone(picman);
+        }
+
+        public static bool WinManNotInit {
+            get {
+                return (WinMan == null);
+            }
         }
     }
 }
