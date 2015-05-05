@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 using MangaReader.Utility;
 
-namespace MangaReader.Threads {
+namespace MangaReader.PicLoadMethods {
 
     /* A Basic implementaion of a Dynamic Threading solution. 
      * Instead of Threading the Disk IO Picture Retrieval all at once like ImagePreload. 
@@ -27,6 +27,8 @@ namespace MangaReader.Threads {
             taskArray[initialIndex] = createTask(ImageNames[initialIndex], initialIndex);
             taskArray[BeforeInitial] = createTask(ImageNames[BeforeInitial], BeforeInitial);
             taskArray[AfterInitial] = createTask(ImageNames[AfterInitial], AfterInitial);
+
+            currentPosition = initialIndex;
             isTouched = true; //An access was recorded and the preloader was touched
         }
 
@@ -43,17 +45,18 @@ namespace MangaReader.Threads {
         }
 
         public void LoadThreads(int position) {
-            int newPos = 0; 
+            int newPos = 0;
             if(position == mod(currentPosition + 1)) { //Moved Forward
                 imgArray[mod(currentPosition - 1)].Dispose(); //Dynamically Disposing of pictures not in a one picture radius around the position used.
                 newPos = mod(position+1);
             }
-            else if (position == currentPosition - 1) { //Moved Backwards
+            else if (position == mod(currentPosition - 1)) { //Moved Backwards
                 imgArray[mod(currentPosition + 1)].Dispose();
                 newPos = mod(position-1);
             }
-            taskArray[newPos] = createTask(ImageNames[newPos],newPos); 
+            taskArray[newPos] = createTask(ImageNames[newPos], newPos);
             currentPosition = position;
+            
         }
 
         private int mod(int x) {

@@ -6,13 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace MangaReader.Threads {
+namespace MangaReader.PicLoadMethods {
 
-    public class NaiveImagePreload {
-        protected Image[] imgArray;
+    public class NaiveImagePreload : PicLoadMethod {
         protected Task[] taskArray;
+        protected Image[] imgArray;
         protected readonly List<String> ImageNames;
-        protected bool isTouched; //A simple flag which tells if one of the windows has requested a picture from the preloader.
 
         public NaiveImagePreload(List<String> pathnames) {
             imgArray = new Bitmap[pathnames.Count];
@@ -30,7 +29,7 @@ namespace MangaReader.Threads {
             return tsk;
         }
 
-        public virtual void LoadImages(int initialIndex) {
+        public override void LoadImages(int initialIndex) {
             int count = 0;
 
             foreach (String names in ImageNames) {
@@ -40,14 +39,8 @@ namespace MangaReader.Threads {
             Task.WaitAll(taskArray);
         }
 
-        public virtual Image getImage(int position) {
+        public override Image getImage(int position) {
             return imgArray[position];
-        }
-
-        public bool isTouch {
-            get{
-                return isTouched;
-            }
         }
     }
 }

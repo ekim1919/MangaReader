@@ -34,7 +34,7 @@ namespace MangaReader.ReaderForms {
 
         public void LoadPic(Image img) {
             PictureBox.Image = img;
-            ThisFormZoom = new ZoomManager(img, img.Width, img.Height);
+            ThisFormZoom = new ZoomManager(img, img.Width, img.Height); //How to handle disposal?
         }
 
         public void ChangeDirectoryTextBox(String pathname) {

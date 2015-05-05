@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Tests\DBTests.cs" />
+    <Compile Include="PicLoadMethods\NoThreading.cs" />
+    <Compile Include="PicLoadMethods\PicLoadMethod.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="Database\SessionDBConnCreator.cs" />
     <Compile Include="Database\SessionDB.cs" />
@@ -119,8 +121,8 @@
     </Compile>
     <Compile Include="Structs\DBStruct.cs" />
     <Compile Include="Structs\ImgStruct.cs" />
-    <Compile Include="Threads\NaiveImagePreload.cs" />
-    <Compile Include="Threads\ImagePreloadDynamic.cs" />
+    <Compile Include="PicLoadMethods\NaiveImagePreload.cs" />
+    <Compile Include="PicLoadMethods\ImagePreloadDynamic.cs" />
     <Compile Include="FileHandlers\FileHandler.cs" />
     <Compile Include="FileHandlers\ZipHandler.cs" />
     <EmbeddedResource Include="ReaderForms\BasicReader.resx">

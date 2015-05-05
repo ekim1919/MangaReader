@@ -44,5 +44,9 @@ namespace MangaReader.SettingsForms {
         private void SaveSessionCheckBox_CheckedChanged(object sender, EventArgs e) {
             Settings.SavedSessionAlerts = SaveSessionCheckBox.Checked;
         }
+
+        private void ThreadFeature_CheckedChanged(object sender, EventArgs e) {
+            Settings.DynamicThreading = ThreadFeature.Checked;
+        }
     }
  }

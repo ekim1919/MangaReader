@@ -36,6 +36,7 @@
             this.AlertCheckBox = new System.Windows.Forms.CheckBox();
             this.MonitorConfig = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ThreadFeature = new System.Windows.Forms.CheckBox();
             this.SettingsTab.SuspendLayout();
             this.Preferences.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // Preferences
             // 
+            this.Preferences.Controls.Add(this.ThreadFeature);
             this.Preferences.Controls.Add(this.SaveSessionCheckBox);
             this.Preferences.Controls.Add(this.AlertCheckBox);
             this.Preferences.Location = new System.Drawing.Point(4, 22);
@@ -100,6 +102,17 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // ThreadFeature
+            // 
+            this.ThreadFeature.AutoSize = true;
+            this.ThreadFeature.Location = new System.Drawing.Point(27, 85);
+            this.ThreadFeature.Name = "ThreadFeature";
+            this.ThreadFeature.Size = new System.Drawing.Size(194, 17);
+            this.ThreadFeature.TabIndex = 2;
+            this.ThreadFeature.Text = "Dynamic Threading (May be buggy)";
+            this.ThreadFeature.UseVisualStyleBackColor = true;
+            this.ThreadFeature.CheckedChanged += new System.EventHandler(this.ThreadFeature_CheckedChanged);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,5 +136,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.CheckBox AlertCheckBox;
         private System.Windows.Forms.CheckBox SaveSessionCheckBox;
+        private System.Windows.Forms.CheckBox ThreadFeature;
     }
 }

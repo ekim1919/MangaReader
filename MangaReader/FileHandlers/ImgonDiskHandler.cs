@@ -5,13 +5,15 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 
-using MangaReader.Threads;
+using MangaReader.PicLoadMethods;
+using MangaReader.Initializers;
+
 namespace MangaReader.FileHandlers {
     public class ImgonDiskHandler : FileHandler {
 
         private String DirPathName;
         private String SelectedFilePathName;
-        private NaiveImagePreload Images;
+        private PicLoadMethod Images;
 
         public ImgonDiskHandler(String pathnameToFile) {
             SelectedFilePathName = pathnameToFile;
@@ -40,7 +42,9 @@ namespace MangaReader.FileHandlers {
         }
 
         private void initializePreload(List<String> fileNames) {
-            Images = new ImagePreloadDynamic(fileNames); //Testing for now
+ 
+                Images = (!Settings.DynamicThreading) ? (PicLoadMethod) new NoThreading(fileNames) : 
+                                                        (PicLoadMethod) new ImagePreloadDynamic(fileNames);//Testing for now
         }
     }
 }
