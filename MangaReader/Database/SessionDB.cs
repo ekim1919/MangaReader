@@ -40,9 +40,9 @@ namespace MangaReader.Database {
         }
 
         private String buildValuesString(String pathname, int savedpos, int mode) {
-            return " ' " + pathname + " ' ," +
-                   " ' " + savedpos + " ' ," +
-                   " ' " + mode + " ' ";
+            return "'" + pathname + "'," +
+                   "'" + savedpos + "'," +
+                   "'" + mode + "'";
         }
 
         public void deleteSession(String sessionName) {

@@ -8,7 +8,7 @@ namespace MangaReader.FileHandlers {
    public abstract class FileHandler {
         protected List<String> FileNames;
         
-        public String getImagePath(int position) {
+        public virtual String getImagePath(int position) {
             return FileNames[position];
         }
 

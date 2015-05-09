@@ -135,6 +135,8 @@ namespace MangaReader.ReaderForms {
             // 
             // fullScreenModeToolStripMenuItem
             // 
+            this.fullScreenModeToolStripMenuItem.Checked = true;
+            this.fullScreenModeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fullScreenModeToolStripMenuItem.Name = "fullScreenModeToolStripMenuItem";
             this.fullScreenModeToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.fullScreenModeToolStripMenuItem.Text = "Full Screen Mode";

@@ -21,30 +21,38 @@ namespace MangaReader.FileHandlers {
 
     public class ZipHandler : FileHandler {
 
-        private ZipFile file;
+        private ZipFile File;
+        private String PathToFile;
 
         public ZipHandler(String pathnameToZip) {
-            file = new ZipFile(pathnameToZip);
+            File = new ZipFile(pathnameToZip);
+            PathToFile = pathnameToZip;
         }
 
         public override Image getImage(int position) {
             using (MemoryStream imageStream = new MemoryStream()) {
                 String imageName = FileNames[position];
-                file[imageName].Extract(imageStream);
+                File[imageName].Extract(imageStream);
                       return Image.FromStream(imageStream);
             }
+        }
+        //Override get imglist method.
+        public override String getImagePath(int position)
+        {
+            //return PathToFile + "\\" + base.getImagePath(position);
+            return PathToFile; //There is an issue with session saving and giving the user the direct path in the zip file. Need to fix this inconsistency later.
         }
 
         public override int initializeImgList() {
             FileNames = new List<String>();
-            foreach (ZipEntry ent in file) {
+            foreach (ZipEntry ent in File) {
                 FileNames.Add(ent.FileName);
             }
             return 0; //For now, start from beginning of zip file
         }
 
         ~ZipHandler() {
-            file.Dispose(); //Ensure disposal of IDisposable object, ZipFile
+            File.Dispose(); //Ensure disposal of IDisposable object, ZipFile
         }
     }
 }

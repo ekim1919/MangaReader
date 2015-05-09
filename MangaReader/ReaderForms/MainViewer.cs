@@ -105,7 +105,7 @@ namespace MangaReader.ReaderForms {
 
             ToolStripMenuItem addSession = new ToolStripMenuItem("New Session");
             addSession.Click += new EventHandler((sender, e) => saveSession(sender, e, PicMan.CurrentPos, (PicMan.FileMana).getPathNameatPos(PicMan.CurrentPos)));
-
+  
             sessionsToolStripMenuItem.DropDownItems.Add(addSession);
 
             foreach(DBStruct i in list) {
@@ -134,8 +134,10 @@ namespace MangaReader.ReaderForms {
         }
 
         private void saveSession(object sender, EventArgs e, int currentPos, String pathName) {
-            sessionsToolStripMenuItem.DropDownItems.Add(nestedOptionSessionItem(pathName,PicMan.CurrentPos));
-            database.saveSessionintoDB(pathName,currentPos,0); //Mode will be default 0 for now until I figure out something to do with it.
+            if(PicMan != null) {
+                sessionsToolStripMenuItem.DropDownItems.Add(nestedOptionSessionItem(pathName,PicMan.CurrentPos));
+                database.saveSessionintoDB(pathName,currentPos,0); //Mode will be default 0 for now until I figure out something to do with it.
+            }
         }
 
         private ToolStripMenuItem nestedOptionSessionItem(String pathName, int pos) {
